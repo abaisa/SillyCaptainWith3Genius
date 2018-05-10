@@ -4,10 +4,10 @@ import pandas as pd
 将数值特征和中文特征整合
 '''
 def data_combine():
-    train_data_num=pd.read_csv('../data/train_data_num_final.csv',encoding='utf-8')
-    test_data_num=pd.read_csv('../data/test_data_num_final.csv',encoding='utf-8')
-    train_data_ch=pd.read_csv('../data/train_data_ch_final.csv',encoding='utf-8')
-    test_data_ch=pd.read_csv('../data/test_data_ch_final.csv',encoding='utf-8')
+    train_data_num=pd.read_csv('../../data/train_data_num_final.csv',encoding='utf-8')
+    test_data_num=pd.read_csv('../../data/test_data_num_final.csv',encoding='utf-8')
+    train_data_ch=pd.read_csv('../../data/train_data_ch_final.csv',encoding='utf-8')
+    test_data_ch=pd.read_csv('../../data/test_data_ch_final.csv',encoding='utf-8')
 
     x_train_num=train_data_num.ix[:,6:]
     x_train_ch=train_data_ch.ix[:,6:]
@@ -23,8 +23,8 @@ def data_combine():
     print("测试集列数：%d" %len(test_data.columns))
 
     # 输出到文件
-    train_data.to_csv('../data/train_data_num_ch.csv',encoding='utf-8')
-    test_data.to_csv('../data/test_data_num_ch.csv', index=False,encoding='utf-8')
+    train_data.to_csv('../../data/train_data_num_ch.csv',encoding='utf-8')
+    test_data.to_csv('../../data/test_data_num_ch.csv', index=False,encoding='utf-8')
 
 if __name__ == '__main__':
     data_combine()

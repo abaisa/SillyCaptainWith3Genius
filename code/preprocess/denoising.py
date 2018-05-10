@@ -56,7 +56,7 @@ def my_plot(x_train, y_train):
     plt.show()
 
 def file_read():
-    train_data = pd.read_csv('../data/train_data_num_ch.csv',encoding = 'utf-8')
+    train_data = pd.read_csv('../../data/train_data_num_ch.csv',encoding = 'utf-8')
     x_train = train_data.iloc[:,6:].astype(float)
     y_train = train_data.iloc[:,:6]
     
@@ -108,7 +108,7 @@ def denoising():
         x_train.drop(i,inplace = True)
     print('去除特征值离群的样本数：%d'%len(set(drop_list))) #去除了28个特征值离群的样本
     train_data = pd.concat([y_train,x_train],axis = 1,join = 'inner')
-    train_data.to_csv('../data/train_data_num_ch_last.csv',index = False,encoding = 'utf-8')
+    train_data.to_csv('../../data/train_data_num_ch_last.csv',index = False,encoding = 'utf-8')
 
 if __name__ ==  '__main__':
     denoising()

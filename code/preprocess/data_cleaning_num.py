@@ -278,7 +278,7 @@ def feature_cleaning_num(df,drop_columns, yang_columns, common_columns):
 
 # 训练集数值特征清洗
 def train_data_cleaning_num(drop_columns, special_columns, yang_columns):
-    train_data = pd.read_csv('../data/train_num_uncleaning.csv', encoding='utf-8')
+    train_data = pd.read_csv('../../data/train_num_uncleaning.csv', encoding='utf-8')
     x_train = train_data.ix[:, 6:]
     y_train = train_data.ix[:, :6]
     train_col_list = cleaning_feature(x_train)  # 得到需要清洗的特征名列表,总共214个
@@ -293,11 +293,11 @@ def train_data_cleaning_num(drop_columns, special_columns, yang_columns):
     train_data=pd.concat([y_train, x_train, x_train_encoding], axis=1)
 
     print("清洗完后，训练集列数：%d" % len(train_data.columns))  # 421
-    train_data.to_csv('../data/train_data_num_final.csv', index=False, encoding='utf-8')
+    train_data.to_csv('../../data/train_data_num_final.csv', index=False, encoding='utf-8')
 
 # 测试集数值特征清洗
 def test_data_cleaning_num(drop_columns, special_columns, yang_columns):
-    test_data = pd.read_csv('../data/test_num_uncleaning.csv', encoding='utf-8')
+    test_data = pd.read_csv('../../data/test_num_uncleaning.csv', encoding='utf-8')
     x_test = test_data.ix[:, 1:]
     id_test = test_data.ix[:, 0]
     test_col_list = cleaning_feature(x_test)  # 得到需要清洗的特征名列表,测试集有134个数值特征需要清洗
@@ -312,7 +312,7 @@ def test_data_cleaning_num(drop_columns, special_columns, yang_columns):
     test_data=pd.concat([id_test, x_test, x_test_encoding], axis=1)
 
     print("测试集列数：%d" % len(test_data.columns))  # 416
-    test_data.to_csv('../data/test_data_num_final.csv', index=False, encoding='utf-8')
+    test_data.to_csv('../../data/test_data_num_final.csv', index=False, encoding='utf-8')
 
 def data_cleaning_num_run():
     drop_columns = ['0214', '1104', '1335']  # 不重要的特征

@@ -32,10 +32,10 @@ def contain_num(s,col):
 
 # 读取原始数据
 def file_read():
-    part_1 = pd.read_csv('../data/meinian_round1_data_part1_20180408.txt', delimiter='$', encoding='utf-8')
-    part_2 = pd.read_csv('../data/meinian_round1_data_part2_20180408.txt', delimiter='$', encoding='utf-8')
-    y_train = pd.read_csv('../data/meinian_round1_train_20180408.csv', encoding='gbk')
-    y_test = pd.read_csv('../data/meinian_round1_test_b_20180505.csv', encoding='gbk')
+    part_1 = pd.read_csv('../../data/meinian_round1_data_part1_20180408.txt', delimiter='$', encoding='utf-8')
+    part_2 = pd.read_csv('../../data/meinian_round1_data_part2_20180408.txt', delimiter='$', encoding='utf-8')
+    y_train = pd.read_csv('../../data/meinian_round1_train_20180408.csv', encoding='gbk')
+    y_test = pd.read_csv('../../data/meinian_round1_test_b_20180505.csv', encoding='gbk')
     y_train.set_index('vid', inplace=True)  # 将vid设为索引
     y_test.set_index('vid', inplace=True)
 
@@ -43,10 +43,10 @@ def file_read():
 
 # 输出到文件
 def file_write(train_data_num, test_data_num, train_data_ch, test_data_ch):
-    train_data_num.to_csv('../data/train_num_uncleaning.csv', encoding='utf-8')
-    test_data_num.to_csv('../data/test_num_uncleaning.csv', encoding='utf-8')
-    train_data_ch.to_csv('../data/train_ch_uncleaning.csv', encoding='utf-8')
-    test_data_ch.to_csv('../data/test_ch_uncleaning.csv', encoding='utf-8')
+    train_data_num.to_csv('../../data/train_num_uncleaning.csv', encoding='utf-8')
+    test_data_num.to_csv('../../data/test_num_uncleaning.csv', encoding='utf-8')
+    train_data_ch.to_csv('../../data/train_ch_uncleaning.csv', encoding='utf-8')
+    test_data_ch.to_csv('../../data/test_ch_uncleaning.csv', encoding='utf-8')
 
 # 提取part1的数值和中文特征
 def get_part1_num_ch(part_1, y_train, y_test):

@@ -596,7 +596,7 @@ def feature_cleaning_ch(df, ch_columns, yinyang_columns, num_columns):
 
 # 处理训练集的中文特征
 def train_data_cleaning_ch(yinyang_columns, ch_columns, num_columns):
-    train_data = pd.read_csv('../data/train_ch_uncleaning.csv', encoding='utf-8')
+    train_data = pd.read_csv('../../data/train_ch_uncleaning.csv', encoding='utf-8')
     x_train = train_data.ix[:, 6:]
     y_train = train_data.ix[:, :6]
 
@@ -604,11 +604,11 @@ def train_data_cleaning_ch(yinyang_columns, ch_columns, num_columns):
     x_train, x_train_encoding, feature_0929_encoding, feature_0409_encoding, feature_0434_encoding = feature_cleaning_ch(x_train, ch_columns, yinyang_columns, num_columns)
     train_data = pd.concat([y_train, x_train, x_train_encoding, feature_0929_encoding, feature_0409_encoding, feature_0434_encoding],axis=1)
     print("训练集列数：%d" % len(train_data.columns))  # 213
-    train_data.to_csv('../data/train_data_ch_final.csv', index=False, encoding='utf-8')
+    train_data.to_csv('../../data/train_data_ch_final.csv', index=False, encoding='utf-8')
 
 # 测试集的处理
 def test_data_cleaning_ch(yinyang_columns, ch_columns, num_columns):
-    test_data = pd.read_csv('../data/test_ch_uncleaning.csv', encoding='utf-8')
+    test_data = pd.read_csv('../../data/test_ch_uncleaning.csv', encoding='utf-8')
     x_test=test_data.ix[:,1:]
     id_test=test_data.ix[:,0]
 
@@ -616,7 +616,7 @@ def test_data_cleaning_ch(yinyang_columns, ch_columns, num_columns):
     x_test, x_test_encoding, feature_0929_encoding, feature_0409_encoding, feature_0434_encoding = feature_cleaning_ch(x_test, ch_columns, yinyang_columns, num_columns)
     test_data = pd.concat([id_test, x_test, x_test_encoding, feature_0929_encoding, feature_0409_encoding, feature_0434_encoding], axis=1)
     print("测试集列数：%d" % len(test_data.columns))  # 208
-    test_data.to_csv('../data/test_data_ch_final.csv', index=False, encoding='utf-8')
+    test_data.to_csv('../../data/test_data_ch_final.csv', index=False, encoding='utf-8')
 
 def data_cleaning_ch_run():
     # 阴阳特征
