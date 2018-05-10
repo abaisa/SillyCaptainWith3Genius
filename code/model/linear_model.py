@@ -7,6 +7,8 @@
     average > 0.12744208882408292
 '''
 
+
+
 import numpy as np
 from common.my_fun import error_fun, get_useful_features_byLightBGM
 from sklearn import linear_model
@@ -32,7 +34,7 @@ def linearModel(X, Y):
     return model, error
 
 if __name__ == '__main__':
-    train_x_full = get_train_X().fillna(train_x.median())
+    train_x_full = get_train_X().fillna(get_train_X().median())
     train_y = get_train_Y()
     best, worst, avg, rounds = 1, 0, 0, 10
 
