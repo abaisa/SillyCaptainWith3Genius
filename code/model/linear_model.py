@@ -34,7 +34,7 @@ def linearModel(X, Y):
     return model, error
 
 if __name__ == '__main__':
-    train_x_full = get_train_X().fillna(train_x.median())
+    train_x_full = get_train_X().fillna(get_train_X().median())
     train_y = get_train_Y()
     best, worst, avg, rounds = 1, 0, 0, 10
 
