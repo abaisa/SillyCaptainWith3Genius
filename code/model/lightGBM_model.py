@@ -1,5 +1,4 @@
 """
-    预测目标  血清甘油三酯
     lightBGM 单模型预测
 """
 
@@ -26,7 +25,7 @@ def lightBGM_model_with_test(X, Y):
     error = error_fun(predict, y2)[1]
 
     del x1, x2, y1, y2
-    return model, error
+    return error
 
 def lightBGM_model(X, Y):
     model = LGBMRegressor(num_leaves=36, n_estimators=100, learning_rate=0.07, random_state=0)
@@ -38,7 +37,7 @@ if __name__ == '__main__':
 
     for i in range(rounds):
         print('round : ' + str(i))
-        model, error = lightBGM_model_with_test(get_train_X(), get_train_Y())
+        error = lightBGM_model_with_test(get_train_X(), get_train_Y())
         print('error : ' + str(error))
 
         if error < best:
